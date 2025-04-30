@@ -1,27 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AgendaBook Account Deletion Notice</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5; }
-    .container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; }
-    .header { background-color: #d32f2f; color: #fff; padding: 20px; text-align: center; font-size: 24px; font-weight: bold; }
-    .language-switcher { text-align: right; padding: 10px 20px; background: #fafafa; }
-    .language-switcher button { margin-left: 8px; padding: 6px 12px; border: none; background: #e0e0e0; border-radius: 4px; cursor: pointer; font-size: 14px; }
-    .language-switcher button.active { background: #d32f2f; color: #fff; }
-    .content { display: none; padding: 20px; font-size: 16px; color: #333; }
-    .content.active { display: block; }
-    .section { margin-bottom: 24px; }
-    .section h2 { font-size: 18px; color: #d32f2f; margin-bottom: 12px; }
-    .section ul { margin: 12px 0; padding-left: 20px; }
-    .section li { margin-bottom: 8px; }
-    a.contact-link { color: #d32f2f; text-decoration: none; font-weight: bold; }
+    /* Base Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .header {
+      background-color: #d32f2f;
+      color: #fff;
+      padding: 16px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .language-switcher {
+      display: flex;
+      justify-content: flex-end;
+      padding: 8px 16px;
+      background: #fafafa;
+    }
+    .language-switcher button {
+      margin-left: 8px;
+      padding: 6px 12px;
+      border: none;
+      background: #e0e0e0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      flex: 1;
+      max-width: 100px;
+    }
+    .language-switcher button.active {
+      background: #d32f2f;
+      color: #fff;
+    }
+    .content {
+      display: none;
+      padding: 20px 16px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .content.active {
+      display: block;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-size: 18px;
+      color: #d32f2f;
+      margin-bottom: 12px;
+    }
+    .section ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+    .section li {
+      margin-bottom: 6px;
+    }
+    a.contact-link {
+      color: #d32f2f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Mobile Specific */
     @media (max-width: 480px) {
-      .header { font-size: 20px; }
-      .content { font-size: 14px; }
-      .section h2 { font-size: 16px; }
+      .container {
+        margin: 10px;
+      }
+      .header {
+        font-size: 20px;
+        padding: 14px;
+      }
+      .language-switcher {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .language-switcher button {
+        flex: 0 1 45%;
+        margin: 4px 2px;
+      }
+      .content {
+        padding: 16px 12px;
+        font-size: 14px;
+      }
+      .section h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .section ul {
+        padding-left: 16px;
+      }
     }
   </style>
 </head>
@@ -73,14 +159,17 @@
       const koContent = document.getElementById('content-ko');
       const enContent = document.getElementById('content-en');
       const header = document.getElementById('header-text');
-
       if (lang === 'ko') {
-        koBtn.classList.add('active'); enBtn.classList.remove('active');
-        koContent.classList.add('active'); enContent.classList.remove('active');
+        koBtn.classList.add('active');
+        enBtn.classList.remove('active');
+        koContent.classList.add('active');
+        enContent.classList.remove('active');
         header.textContent = '아젠다북 회원 탈퇴 안내';
       } else {
-        enBtn.classList.add('active'); koBtn.classList.remove('active');
-        enContent.classList.add('active'); koContent.classList.remove('active');
+        enBtn.classList.add('active');
+        koBtn.classList.remove('active');
+        enContent.classList.add('active');
+        koContent.classList.remove('active');
         header.textContent = 'AgendaBook Account Deletion Notice';
       }
     }
